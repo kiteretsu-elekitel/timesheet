@@ -1,1 +1,3 @@
-myFunction
+function myFunction() {
+
+}

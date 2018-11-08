@@ -1,1 +1,38 @@
-1f
+<!DOCTYPE html>
+<html>
+	<head>
+		<base target="_top">
+		 <?!= include("stylesheet"); ?>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+	<body>
+		<div class="header-wrapper">
+			<div class="header-container">
+				<h1>勤務表作成システム</h1>
+			</div>
+		</div>
+		<div class="body-container">
+			<div class="targetDay input-template">
+				<p>対象日</p>
+				<input id="targetDay" class="input-form" type="date" value="<?= getCurrentDate("date"); ?>">
+			</div>
+			<div class="start-record input-template">
+				<p>勤務開始時間</p>
+				<input id="start" class="input-form" type="time" value="09:00">
+			</div>
+			<div class="finish-record input-template">
+				<p>勤務終了時間</p>
+				<input id="finish" class="input-form" type="time" value="<?= getCurrentDate("time"); ?>">
+			</div>
+			<div class="submit-btn input-template">
+				<span id="btn" class="btn">送信 ! </span>
+			</div>
+		</div>
+		<div class="footer-wrapper">
+			<div class="footer-container">
+				<p>footer</p>
+
+			</div>
+		</div>
+	</body>
+</html>f
