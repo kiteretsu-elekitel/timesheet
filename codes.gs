@@ -27,10 +27,18 @@ function getCurrentDate(type) {
 }
 
 function clickBtn() {
-	Logger.log("test");
+	var date = new Date();
 
-	var files = DriveApp.getFilesByName("201811");
-	Logger.log(files)
+	var year = date.getFullYear();
+	var month = ("0" + (date.getMonth() + 1)).slice(-2);
+	var currentMonth = year + month;
+	Logger.log(currentMonth)
 
+	var files = DriveApp.getFilesByName(currentMonth);
+	if (files.hasNext()) {
+		Logger.log(files.next().getId());
+	} else {
+		Logger.log("no files")
+	}
 }
 
