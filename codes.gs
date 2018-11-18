@@ -39,7 +39,7 @@ function writeData(currentFileId) {
 
 }
 
-function clickBtn() {
+function clickBtn(targetDate, startTime, tarminationTime) {
 	var date = new Date();
 
 	var year = date.getFullYear();
@@ -47,18 +47,17 @@ function clickBtn() {
 	var currentMonth = year + month;
 	Logger.log(currentMonth)
 
+	var target = targetDate;
+	var start = startTime;
+	var tarm = tarminationTime;
+
+	Logger.log(target, start, tarm);
+
 	var files = DriveApp.getFilesByName(currentMonth);
 	if (files.hasNext()) {
-		Logger.log(files.next().getId());
-		writeData(files.next().getId())
-
-		var targetDate = document.targetDay.value;
-		var startTime = document.start.value
-		var tarminationTime = document.finish.value
-
-		Logger.log(targetDate);
-		Logger.log(startTime);
-		Logger.log(tarminationTime);
+		var currentFileId = files.next().getId();
+		Logger.log("currentFileId is " + currentFileId);
+		writeData(currentFileId)
 
 	} else {
 		Logger.log("no files")
