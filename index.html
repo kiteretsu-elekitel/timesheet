@@ -5,8 +5,12 @@
 		 <?!= include("stylesheet"); ?>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script type="text/javascript">
+			function fire() {
+				google.script.run.clickBtn(document.getElementById("targetDay").value, document.getElementById("start").value, document.getElementById("finish"))
+
+			}
         </script>
-        
+
 	</head>
 	<body>
 		<div class="header-wrapper">
@@ -28,7 +32,8 @@
 				<input id="finish" name="finish" class="input-form" type="time" value="<?= getCurrentDate("time"); ?>">
 			</div>
 			<div  class="submit-btn input-template">
-			    <span onClick="google.script.run.clickBtn(form.targetDate.value, form.start.value, form.finish.value)" id="btn" class="btn">送信 ! </span>
+				<!-- <span onClick="google.script.run.clickBtn(form.targetDate.value, form.start.value, form.finish.value)" id="btn" class="btn">送信 ! </span> -->
+			    <span onClick="fire()" id="btn" class="btn">送信 ! </span>
 			</div>
 		</div>
 		<div class="footer-wrapper">
