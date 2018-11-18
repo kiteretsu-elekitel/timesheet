@@ -26,6 +26,19 @@ function getCurrentDate(type) {
 	}
 }
 
+function writeData(currentFileId) {
+	var fileId = currentFileId
+
+	var targetDate = document.targetDay.value;
+	var startTime = document.start.value
+	var tarminationTime = document.finish.value
+
+	Logger.log(targetDate);
+	Logger.log(startTime);
+	Logger.log(tarminationTime);
+
+}
+
 function clickBtn() {
 	var date = new Date();
 
@@ -53,15 +66,3 @@ function clickBtn() {
 
 }
 
-function writeData(currentFileId) {
-	var fileId = currentFileId
-
-	var targetDate = document.targetDay.value;
-	var startTime = document.start.value
-	var tarminationTime = document.finish.value
-
-	Logger.log(targetDate);
-	Logger.log(startTime);
-	Logger.log(tarminationTime);
-
-}
