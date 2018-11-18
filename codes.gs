@@ -37,11 +37,31 @@ function clickBtn() {
 	var files = DriveApp.getFilesByName(currentMonth);
 	if (files.hasNext()) {
 		Logger.log(files.next().getId());
+		writeData(files.next().getId())
+
+		var targetDate = document.targetDay.value;
+		var startTime = document.start.value
+		var tarminationTime = document.finish.value
+
+		Logger.log(targetDate);
+		Logger.log(startTime);
+		Logger.log(tarminationTime);
+
 	} else {
 		Logger.log("no files")
 	}
+
 }
 
 function writeData(currentFileId) {
+	var fileId = currentFileId
+
+	var targetDate = document.targetDay.value;
+	var startTime = document.start.value
+	var tarminationTime = document.finish.value
+
+	Logger.log(targetDate);
+	Logger.log(startTime);
+	Logger.log(tarminationTime);
 
 }
