@@ -28,14 +28,8 @@ function getCurrentDate(type) {
 
 function writeData(currentFileId) {
 	var fileId = currentFileId
+    
 
-	var targetDate = document.targetDay.value;
-	var startTime = document.start.value
-	var tarminationTime = document.finish.value
-
-	Logger.log(targetDate);
-	Logger.log(startTime);
-	Logger.log(tarminationTime);
 
 }
 
@@ -50,8 +44,9 @@ function clickBtn(targetDate, startTime, tarminationTime) {
 	var target = targetDate;
 	var start = startTime;
 	var tarm = tarminationTime;
-
-	Logger.log(target, start, tarm);
+    
+  
+	Logger.log(target);
 
 	var files = DriveApp.getFilesByName(currentMonth);
 	if (files.hasNext()) {
