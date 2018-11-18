@@ -42,3 +42,6 @@ function clickBtn() {
 	}
 }
 
+function writeData(currentFileId) {
+
+}
