@@ -28,7 +28,7 @@ function getCurrentDate(type) {
 
 function writeData(currentFileId) {
 	var fileId = currentFileId
-    
+
 
 
 }
@@ -39,15 +39,21 @@ function clickBtn(targetDate, startTime, tarminationTime) {
 	var year = date.getFullYear();
 	var month = ("0" + (date.getMonth() + 1)).slice(-2);
 	var currentMonth = year + month;
-	Logger.log(currentMonth)
 
 	var target = targetDate;
 	var start = startTime;
 	var tarm = tarminationTime;
-    
-  
+
+
 	Logger.log(target);
 
+	//folder check
+	var folder = DriveApp.getFolderByName("GBR")
+	if (!folder.hasNext()) {
+		DriveApp.createFolder("GBR")
+	}
+
+	//file check
 	var files = DriveApp.getFilesByName(currentMonth);
 	if (files.hasNext()) {
 		var currentFileId = files.next().getId();
