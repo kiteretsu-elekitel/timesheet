@@ -48,10 +48,14 @@ function clickBtn(targetDate, startTime, tarminationTime) {
 	Logger.log(target);
 
 	//folder check
-	var folder = DriveApp.getFolderByName("GBR")
-	if (!folder.hasNext()) {
-		DriveApp.createFolder("GBR")
+	var folders = DriveApp.getFolderByName("GBR");
+	if (!folders.hasNext()) {
+		DriveApp.createFolder("GBR");
+		folders = DriveApp.getFolderByName("GBR");
 	}
+
+	var gbrFolder = folders.next();
+
 
 	//file check
 	var files = DriveApp.getFilesByName(currentMonth);
