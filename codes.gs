@@ -48,16 +48,17 @@ function clickBtn(targetDate, startTime, tarminationTime) {
 	Logger.log(target);
 
 	//folder check
-	var folders = DriveApp.getFolderByName("GBR");
+	var folders = DriveApp.searchFolders('title = "GBR"');
+    Logger.log(folders);
 	if (!folders.hasNext()) {
 		DriveApp.createFolder("GBR");
-		folders = DriveApp.getFolderByName("GBR");
+		folders = DriveApp.getFoldersByName("GBR");
 	}
 
 	var gbrFolder = folders.next()
 
 	//file check in GBR folder
-	var files = gbrFolder.getFilesByName(currentMonth);
+    var files = gbrFolder.searchFiles('title = "' + currentMonth + '"');
 	if (files.hasNext()) {
 		var currentFileId = files.next().getId();
 		Logger.log("currentFileId is " + currentFileId);
@@ -65,9 +66,9 @@ function clickBtn(targetDate, startTime, tarminationTime) {
 	} else {
 		//make current month file
 		SpreadsheetApp.create(currentMonth);
-		var createdfile = DriveApp.getFilesByName(currentMonth);
+		var createdfile = DriveApp.getFilesByName(currentMonth).next();
 
-		gbrFolder.addfile(createdfile);
+		gbrFolder.addFile(createdfile);
 		DriveApp.getRootFolder().removeFile(createdfile);
 
 	}
