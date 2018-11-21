@@ -6,9 +6,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script type="text/javascript">
 			function fire() {
-				//google.script.run.clickBtn(document.getElementById("targetDay").value, document.getElementById("start").value, document.getElementById("finish"))
-				google.script.run.clickBtn($( "#targetDay" )[0], #( "#start" )[0], $( "#finish" )[0])
-
+				var day = document.getElementById("targetDay").value;
+				var start = document.getElementById("start").value;
+				var term = document.getElementById("finish").value;
+				google.script.run.clickBtn(day, start, term);
 			}
         </script>
 
