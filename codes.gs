@@ -19,15 +19,17 @@ function getCurrentDate(type) {
 		return currentTime;
 
 	} else if (type === "time") {
+
 		var hour = ("0" + date.getHours()).slice(-2);
-		var minute = ("0" + date.getMinutes()).slice(-2);
+		var minute = date.getMinutes() < 30 ? "00" : "30";
 
 		return hour + ":" + minute;
 	}
 }
 
-function writeData(currentFileId) {
-	var fileId = currentFileId
+function writeData(currentFileId, target, start, term) {
+	var fileId = currentFileId;
+
 
 
 
@@ -73,7 +75,7 @@ function clickBtn(targetDate, startTime, tarminationTime) {
 
 	}
 
-	writeData(currentFileId)
+	writeData(currentFileId, start, target, tarm)
 
 }
 
