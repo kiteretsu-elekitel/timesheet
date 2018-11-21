@@ -25,11 +25,11 @@
 			</div>
 			<div class="start-record input-template">
 				<p>勤務開始時間</p>
-				<input id="start" name="start" class="input-form" type="time" value="09:00">
+				<input id="start" name="start" class="input-form" type="time" step="1800" value="09:00">
 			</div>
 			<div class="finish-record input-template">
 				<p>勤務終了時間</p>
-				<input id="finish" name="finish" class="input-form" type="time" value="<?= getCurrentDate("time"); ?>">
+				<input id="finish" name="finish" class="input-form" type="time" step="1800" value="<?= getCurrentDate("time"); ?>">
 			</div>
 			<div  class="submit-btn input-template">
 				<!-- <span onClick="google.script.run.clickBtn(form.targetDate.value, form.start.value, form.finish.value)" id="btn" class="btn">送信 ! </span> -->
