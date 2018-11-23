@@ -27,13 +27,8 @@ function getCurrentDate(type) {
 	}
 }
 
-function writeData(currentFileId, target, start, term) {
-	var fileId = currentFileId;
 
 
-
-
-}
 
 function clickBtn(targetDate, startTime, tarminationTime) {
 	var date = new Date();
@@ -45,7 +40,6 @@ function clickBtn(targetDate, startTime, tarminationTime) {
 	var target = targetDate;
 	var start = startTime;
 	var tarm = tarminationTime;
-
 
 	Logger.log(target);
 
@@ -72,10 +66,25 @@ function clickBtn(targetDate, startTime, tarminationTime) {
 
 		gbrFolder.addFile(createdfile);
 		DriveApp.getRootFolder().removeFile(createdfile);
+		writeTemplete(createdfile, date);
 
 	}
 
 	writeData(currentFileId, start, target, tarm)
 
 }
+
+function writeTemplete(createdFileId, currentDate) {
+	var fileId = createdFileId;
+	var year = currentDate.getFullYear;
+	var month = currentDate.getMonth;
+	var lastDay = new Date(year, month, 0);
+
+}
+
+function writeData(currentFileId, target, start, term) {
+	var fileId = currentFileId;
+
+}
+
 
