@@ -79,6 +79,24 @@ function writeTemplete(createdFileId, currentDate) {
 	var year = currentDate.getFullYear;
 	var month = currentDate.getMonth;
 	var lastDay = new Date(year, month, 0);
+	var darStr = ["日", "月", "火", "水", "木", "金", "土"];
+
+	//sheet名変更
+	var spreadsheet = SpreadsheetApp.openById(fileId);
+	var sheet = spreadsheet.getSheetByName("シート1");
+	sheet.setName("勤務時間");
+
+	//項目名書き込み
+	var title = ["日付", "開始時間", "終了時間"];
+	sheet.getRange("A1:A3").setValue(title);
+
+	//日付をあらかじめ書き込む
+	for (var i = 1; i <= lastDay; i++;) {
+		var tmpDate = new Date(year, month, i);
+		var inputDate = month + "/" + i + "(" + darStr[tmpDate.getDay] + ")");
+		var row = i + 1;
+		sheet.getRange("A" + i).setValue(inputDate);
+	}
 
 }
 
