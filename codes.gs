@@ -66,6 +66,7 @@ function clickBtn(targetDate, startTime, tarminationTime) {
 
 		gbrFolder.addFile(createdfile);
 		DriveApp.getRootFolder().removeFile(createdfile);
+      	createdfile = gbrFolder.getFilesByName(currentMonth).next().getId();
 		writeTemplete(createdfile, date);
 
 	}
@@ -76,6 +77,7 @@ function clickBtn(targetDate, startTime, tarminationTime) {
 
 function writeTemplete(createdFileId, currentDate) {
 	var fileId = createdFileId;
+  	Logger.log(fileId);
 	var year = currentDate.getFullYear;
 	var month = currentDate.getMonth;
 	var lastDay = new Date(year, month, 0);
@@ -91,9 +93,9 @@ function writeTemplete(createdFileId, currentDate) {
 	sheet.getRange("A1:A3").setValue(title);
 
 	//日付をあらかじめ書き込む
-	for (var i = 1; i <= lastDay; i++;) {
+	for (var i = 1; i <= lastDay; i++) {
 		var tmpDate = new Date(year, month, i);
-		var inputDate = month + "/" + i + "(" + darStr[tmpDate.getDay] + ")");
+		var inputDate = month + "/" + i + "(" + darStr[tmpDate.getDay] + ")";
 		var row = i + 1;
 		sheet.getRange("A" + i).setValue(inputDate);
 	}
@@ -104,5 +106,4 @@ function writeData(currentFileId, target, start, term) {
 	var fileId = currentFileId;
 
 }
-
 
