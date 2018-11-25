@@ -90,7 +90,7 @@ function writeTemplete(createdFileId, currentDate) {
 
 	//項目名書き込み
 	var title = ["日付", "開始時間", "終了時間"];
-	sheet.getRange("A1:C1").setValue(title);
+	sheet.getRange("A1:C1").setValues(title);
 
 	//日付をあらかじめ書き込む
 	for (var i = 1; i <= lastDay; i++) {
