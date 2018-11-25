@@ -78,9 +78,9 @@ function clickBtn(targetDate, startTime, tarminationTime) {
 function writeTemplete(createdFileId, currentDate) {
 	var fileId = createdFileId;
   	Logger.log(fileId);
-	var year = currentDate.getFullYear;
-	var month = currentDate.getMonth;
-	var lastDay = new Date(year, month, 0);
+	var year = currentDate.getFullYear();
+	var month = currentDate.getMonth();
+	var lastDay = new Date(year, month, 0).getDate();
 	var darStr = ["日", "月", "火", "水", "木", "金", "土"];
 
 	//sheet名変更
@@ -89,7 +89,7 @@ function writeTemplete(createdFileId, currentDate) {
 	sheet.setName("勤務時間");
 
 	//項目名書き込み
-	var title = ["日付", "開始時間", "終了時間"];
+	var title = [["日付", "開始時間", "終了時間"]];
 	sheet.getRange("A1:C1").setValues(title);
 
 	//日付をあらかじめ書き込む
@@ -97,6 +97,7 @@ function writeTemplete(createdFileId, currentDate) {
 		var tmpDate = new Date(year, month, i);
 		var inputDate = month + "/" + i + "(" + darStr[tmpDate.getDay] + ")";
 		var row = i + 1;
+        Logger.log(inputDate);
 		sheet.getRange("A" + i).setValue(inputDate);
 	}
 
