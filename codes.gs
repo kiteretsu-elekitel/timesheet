@@ -95,10 +95,9 @@ function writeTemplete(createdFileId, currentDate) {
 	//日付をあらかじめ書き込む
 	for (var i = 1; i <= lastDay; i++) {
 		var tmpDate = new Date(year, month, i);
-		var inputDate = month + "/" + i + "(" + darStr[tmpDate.getDay] + ")";
+		var inputDate = month + "/" + i + "(" + darStr[tmpDate.getDay()] + ")";
 		var row = i + 1;
-        Logger.log(inputDate);
-		sheet.getRange("A" + i).setValue(inputDate);
+		sheet.getRange("A" + row).setValue(inputDate);
 	}
 
 }
