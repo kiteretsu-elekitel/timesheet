@@ -106,5 +106,13 @@ function writeData(currentFileId, target, start, term) {
 	var fileId = currentFileId;
 	Logger.log(currentFileId, target, start, term)
 
+	var spreadsheet = SpreadsheetApp.openById(currentFileId);
+	var sheet = spreadsheet.getSheetByName("勤務時間");
+
+	var targetDay = target.match(/..$/);
+	var row = targetDay + 1;
+
+	var inputData = [[start, term]];
+	sheet.getRange("B" + row + ":C" + row).setValues(inputData);
 }
 
