@@ -83,16 +83,16 @@ function writeTemplete(createdFileId, currentDate) {
 	var lastDay = new Date(year, month, 0).getDate();
 	var darStr = ["日", "月", "火", "水", "木", "金", "土"];
 
-	//sheet名変更
+	//chage sheet name
 	var spreadsheet = SpreadsheetApp.openById(fileId);
 	var sheet = spreadsheet.getSheetByName("シート1");
 	sheet.setName("勤務時間");
 
-	//項目名書き込み
+	//write title
 	var title = [["日付", "開始時間", "終了時間"]];
 	sheet.getRange("A1:C1").setValues(title);
 
-	//日付をあらかじめ書き込む
+	//write date in this month
 	for (var i = 1; i <= lastDay; i++) {
 		var tmpDate = new Date(year, month, i);
 		var inputDate = month + "/" + i + "(" + darStr[tmpDate.getDay()] + ")";
@@ -104,6 +104,7 @@ function writeTemplete(createdFileId, currentDate) {
 
 function writeData(currentFileId, target, start, term) {
 	var fileId = currentFileId;
+	Logger.log(currentFileId, target, start, term)
 
 }
 
